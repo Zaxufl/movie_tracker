@@ -1,16 +1,17 @@
 #ifndef MOVIES_H
 #define MOVIES_H
 #include "movie.h"
-using namespace std;
+#include <vector>
 
 class Movies
 {
-private:
-    vector<Movie> collection;
+    vector<Movie> movies;
 
 public:
-    void add(const Movie &);
-    void save_to_file(const string &) const;
+    void save_movies(string) const;
+    void to_collection(const Movie &);
+    void show_movies() const;
+    void load_from_file(const string &);
 };
 
 #endif // MOVIES_H

@@ -1,24 +1,23 @@
-#include <QDebug>
+#ifndef MOVIE_H
+#define MOVIE_H
+
 #include <fstream>
 #include <string>
 using namespace std;
 
-#ifndef MOVIE_H
-#define MOVIE_H
-
 class Movie
 {
-private:
-    string name;
-    string movie_rating;
+    string title, rating;
     int watched{};
 
 public:
-    Movie(string n, string r, int w)
-        : name{n}
-        , movie_rating{r}
+    Movie(string t, string r, int w)
+        : title{t}
+        , rating{r}
         , watched{w} {};
-    void save(ofstream &out) const;
+    void save_to_file(ofstream &out) const;
+    void show() const;
+    static Movie load(const string &);
 };
 
 #endif // MOVIE_H

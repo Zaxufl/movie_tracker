@@ -17,8 +17,10 @@ set(TS_FILES qtMain_en_US.ts)
 add_executable(qtMain
   main.cpp
   ${TS_FILES}
-  movie.h movie.cpp
+
   nlohmann/json.hpp
+
+  movie.h movie.cpp
   movies.h movies.cpp
 
 
