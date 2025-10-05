@@ -95,7 +95,6 @@ endif()
 # _directory_contents at /opt/Qt/6.9.2/gcc_64/lib/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:55 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/zaxufl/Pulpit/Coding/qtMain/*.hpp")
 set(OLD_GLOB
-  "/home/zaxufl/Pulpit/Coding/qtMain/nlohmann/json.hpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")

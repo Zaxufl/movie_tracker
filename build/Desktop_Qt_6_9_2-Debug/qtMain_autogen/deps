@@ -9,7 +9,6 @@ qtMain_autogen/timestamp: \
 	/home/zaxufl/Pulpit/Coding/qtMain/movie.h \
 	/home/zaxufl/Pulpit/Coding/qtMain/movies.cpp \
 	/home/zaxufl/Pulpit/Coding/qtMain/movies.h \
-	/home/zaxufl/Pulpit/Coding/qtMain/nlohmann/json.hpp \
 	/opt/Qt/6.9.2/gcc_64/lib/cmake/Qt6/FindWrapAtomic.cmake \
 	/opt/Qt/6.9.2/gcc_64/lib/cmake/Qt6/Qt6Config.cmake \
 	/opt/Qt/6.9.2/gcc_64/lib/cmake/Qt6/Qt6ConfigExtras.cmake \

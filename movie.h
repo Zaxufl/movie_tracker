@@ -3,21 +3,23 @@
 
 #include <fstream>
 #include <string>
-using namespace std;
+using std::string;
 
 class Movie
 {
     string title, rating;
-    int watched{};
+    int watched;
 
 public:
     Movie(string t, string r, int w)
         : title{t}
         , rating{r}
         , watched{w} {};
-    void save_to_file(ofstream &out) const;
-    void show() const;
-    static Movie load(const string &);
+    void save_in_file(std::ofstream &);
+    void show();
+    static Movie load_from_file(const string &);
+    void increment_watch();
+    bool check_title(string);
 };
 
 #endif // MOVIE_H

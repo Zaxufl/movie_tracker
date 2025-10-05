@@ -29,8 +29,7 @@
 				"/home/zaxufl/Pulpit/Coding/qtMain/build/Desktop_Qt_6_9_2-Debug/qtMain_autogen/EWIEGA46WW/moc_player.cpp",
 				"/home/zaxufl/Pulpit/Coding/qtMain/build/Desktop_Qt_6_9_2-Debug/qtMain_autogen/mocs_compilation.cpp",
 				"/home/zaxufl/Pulpit/Coding/qtMain/main.cpp",
-				"/home/zaxufl/Pulpit/Coding/qtMain/movie.cpp",
-				"/home/zaxufl/Pulpit/Coding/qtMain/movies.cpp"
+				"/home/zaxufl/Pulpit/Coding/qtMain/movie.cpp"
 			],
 			"recurse" : true
 		},
@@ -44,8 +43,7 @@
 			"paths" : 
 			[
 				"/home/zaxufl/Pulpit/Coding/qtMain/build/Desktop_Qt_6_9_2-Debug/qtMain_autogen/moc_predefs.h",
-				"/home/zaxufl/Pulpit/Coding/qtMain/movie.h",
-				"/home/zaxufl/Pulpit/Coding/qtMain/movies.h"
+				"/home/zaxufl/Pulpit/Coding/qtMain/movie.h"
 			],
 			"recurse" : true
 		},
@@ -61,10 +59,7 @@
 		},
 		{
 			"expression" : "/home/zaxufl/Pulpit/Coding/qtMain/*.hpp",
-			"paths" : 
-			[
-				"/home/zaxufl/Pulpit/Coding/qtMain/nlohmann/json.hpp"
-			],
+			"paths" : [],
 			"recurse" : true
 		},
 		{

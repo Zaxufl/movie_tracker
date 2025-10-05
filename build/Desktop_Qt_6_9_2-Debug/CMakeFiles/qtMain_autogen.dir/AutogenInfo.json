@@ -187,12 +187,6 @@
 			"MU",
 			"EWIEGA46WW/moc_movies.cpp",
 			null
-		],
-		[
-			"/home/zaxufl/Pulpit/Coding/qtMain/nlohmann/json.hpp",
-			"MU",
-			"UK7WSB6VKJ/moc_json.cpp",
-			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],

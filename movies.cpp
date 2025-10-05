@@ -1,43 +1,86 @@
 #include "movies.h"
 #include <QDebug>
 #include <fstream>
+#include <iostream>
 using namespace std;
 
-void Movies::to_collection(const Movie &movie)
+void Movies::add_to_collection(const Movie movie)
 {
-    movies.push_back(movie);
-    qInfo() << "Movie added to collection";
+    collection.push_back(movie);
+    qInfo() << "Movie added to library";
 }
 
-void Movies::show_movies() const
+void Movies::show_movies()
 {
-    if (movies.empty()) {
-        qInfo() << "Movies not found!";
-    } else {
-        for (auto &m : movies) {
-            m.show();
-        }
+    if (collection.empty()) {
+        qInfo() << "Movies not found!\n";
+    }
+    for (auto m : collection) {
+        m.show();
     }
 }
 
-void Movies::save_movies(string filename) const
+void Movies::save_to_file(string filename) const
 {
-    ofstream out(filename);
-    for (auto &m : movies) {
-        m.save_to_file(out);
+    std::ofstream out(filename);
+    for (auto m : collection) {
+        m.save_in_file(out);
     }
-    qInfo() << "Colection saved!";
+    qInfo() << "Collection saved!\n";
 }
 
-void Movies::load_from_file(const string &filename)
+void Movies::load(string &filename)
 {
-    movies.clear();
-    ifstream in(filename);
+    collection.clear();
+    std::ifstream in(filename);
     string line;
     while (getline(in, line)) {
         if (!line.empty()) {
-            movies.push_back(Movie::load(line));
+            collection.push_back(Movie::load_from_file(line));
         }
     }
-    qInfo() << "File loaded successfully";
+
+    qInfo() << "Collection loaded!\n";
+}
+
+void Movies::increment_watch()
+
+{
+    if (collection.empty()) {
+        qInfo() << "Collection is empty!";
+    } else {
+        qInfo() << "Select movie:'\n";
+
+        while (true) {
+            int i{1};
+            for (auto &m : collection) {
+                cout << i << ". ";
+                m.show();
+                ++i;
+            }
+
+            int choice{};
+            cin >> choice;
+
+            if (choice <= i - 1 && choice > 0) {
+                collection[choice - 1].increment_watch();
+                break;
+            } else {
+                qInfo() << "Movie not found, try again: \n";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+        }
+    }
+}
+
+bool Movies::if_title_exist(string t)
+{
+    for (auto m : collection) {
+        if (m.check_title(t)) {
+            return true;
+        }
+    }
+
+    return false;
 }

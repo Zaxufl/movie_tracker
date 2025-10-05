@@ -5,13 +5,15 @@
 
 class Movies
 {
-    vector<Movie> movies;
+    std::vector<Movie> collection;
 
 public:
-    void save_movies(string) const;
-    void to_collection(const Movie &);
-    void show_movies() const;
-    void load_from_file(const string &);
+    void add_to_collection(const Movie);
+    void show_movies();
+    void save_to_file(string) const;
+    void load(string &);
+    void increment_watch();
+    bool if_title_exist(string);
 };
 
 #endif // MOVIES_H

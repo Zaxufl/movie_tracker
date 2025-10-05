@@ -61,10 +61,7 @@
 		},
 		{
 			"expression" : "/home/zaxufl/Pulpit/Coding/qtMain/*.hpp",
-			"paths" : 
-			[
-				"/home/zaxufl/Pulpit/Coding/qtMain/nlohmann/json.hpp"
-			],
+			"paths" : [],
 			"recurse" : true
 		},
 		{

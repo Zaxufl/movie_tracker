@@ -1,72 +1,76 @@
 #include <QDebug>
-#include "movie.h"
 #include "movies.h"
 #include <iostream>
 using namespace std;
+void cin_clear();
+bool add_movie(Movies &);
 
-void add_movie(Movies &);
-
-int main(int argc, char *argv[])
+int main()
 {
-    string filename{"watched_movies.txt"};
     Movies movies;
+    string filename{"my_movies.txt"};
 
     while (true) {
-        qInfo() << "Select option from the menu:";
+        qInfo() << "Movie tracker menu: ";
         qInfo() << "\t1. Add movie";
-        qInfo() << "\t2. Check movies";
+        qInfo() << "\t2. Show movies";
         qInfo() << "\t3. Save to file";
         qInfo() << "\t4. Load from file";
-        qInfo() << "\t5. Exit program";
+        qInfo() << "\t5. Increment watch time by 1";
+        qInfo() << "\t6. Quit";
 
-        int num;
-        cin >> num;
+        int choice{};
+        cin >> choice;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-        if (num == 1) {
-            add_movie(movies);
-        } else if (num == 2) {
+        if (choice == 1) {
+            if (add_movie(movies)) {
+                continue;
+            }
+        } else if (choice == 2) {
             movies.show_movies();
-        } else if (num == 3) {
-            movies.save_movies(filename);
-        } else if (num == 4) {
-            movies.load_from_file(filename);
-        } else if (num == 5) {
+        } else if (choice == 3) {
+            movies.save_to_file(filename);
+        } else if (choice == 4) {
+            movies.load(filename);
+        } else if (choice == 5) {
+            movies.increment_watch();
+        } else if (choice == 6) {
             break;
         } else {
-            qInfo() << "Wrong key, try again:";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Wrong key! try again: ";
+            cin_clear();
         }
     }
 
     return 0;
 }
 
-void add_movie(Movies &collection)
+bool add_movie(Movies &collection)
 {
     string title, rating;
-    int watched;
+    int watched{};
 
-    cout << "Movie title: ";
+    cout << "Title: ";
     getline(cin, title);
 
-    cout << "Movie rating: ";
+    if (collection.if_title_exist(title)) {
+        return true;
+    }
+
+    cout << "Rating: ";
     getline(cin, rating);
 
-    cout << "Watched times: ";
+    cout << "How many times watched: ";
+    cin >> watched;
 
-    while (true) {
-        cin >> watched;
+    collection.add_to_collection(Movie(title, rating, watched));
 
-        if (!cin.good()) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        } else {
-            break;
-        }
-    }
+    return false;
+}
+
+void cin_clear()
+{
+    cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    collection.to_collection(Movie(title, rating, watched));
 }

@@ -15,13 +15,16 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core LinguistTools)
 set(TS_FILES qtMain_en_US.ts)
 
 add_executable(qtMain
-  main.cpp
+
   ${TS_FILES}
 
-  nlohmann/json.hpp
-
+  main.cpp
   movie.h movie.cpp
   movies.h movies.cpp
+
+
+
+
 
 
 
